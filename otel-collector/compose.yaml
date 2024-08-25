@@ -1,0 +1,15 @@
+version: '3.0'
+services:
+  quickwit:
+    image: quickwit/quickwit
+    ports:
+      - 7280:7280
+      - 7281:7281
+    command: ["run"]
+  opentelemetry-collector:
+    image: otel/opentelemetry-collector-contrib
+    volumes:
+    - ./otel-collector-config.yaml:/etc/otelcol-contrib/config.yaml
+    ports:
+    - 4317:4317 # OTLP gRPC receiver
+    - 4318:4318 # OTLP http receiver
