@@ -1,0 +1,2 @@
+# quickwit-opentelemetry
+Quickwit sample
